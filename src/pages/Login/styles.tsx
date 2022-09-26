@@ -25,8 +25,11 @@ export const DivTop = styled.div`
     max-width: 301px;
 `;
 
+//! Bottom
+
 export const DivBottom = styled.div`
     max-width: 379px;
+    position: relative;
 `;
 
 export const LoginTitle = styled.h1`
@@ -45,10 +48,13 @@ export const LoginText = styled.p`
 `;
 
 export const DivInput = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
     background: #26292C;
     border: 1px solid #FFFFFF;
     border-radius: 50px;
-    width: 379px;
     height: 60px;       
 `;
     export const UserDivInput = styled(DivInput)`
@@ -58,9 +64,21 @@ export const DivInput = styled.div`
         margin-bottom: 7.188rem;
     `;
 
+export const Space = styled.div`
+    position: absolute;
+    right: -40px;
+    transition: 1s;
+`;
 export const Input = styled.input`
     background-color: transparent;
     border: none;
+    outline: none;
+    font-size: 1.3rem;
+    color: #E0E0E0;
+    width: 100%;
+    &::placeholder {
+        color: #E0E0E0;
+    }
 `;
 
 export const ContinueButton = styled.button`

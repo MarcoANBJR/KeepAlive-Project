@@ -1,10 +1,44 @@
-import { DivLeft, LoginTitle, Img, Main, LoginInfo, SectionLeft, SectionRight, LoginText, DivTop, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput } from "./styles";
+import { DivLeft, LoginTitle, Img, Main, LoginInfo, SectionLeft, SectionRight, LoginText, DivTop, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, Space } from "./styles";
 import logoCompasso from '../../assets/Logo-Compasso-Branco.png'
 import { AiOutlineLock, AiOutlineUser } from "react-icons/ai";
-// import { useHistory } from 'react-router-dom'
+import { useState } from "react";
+import Alert from "./Alert";
+import { useNavigate } from "react-router-dom";
+
+//! YUP
+//! SetTimeOut
+
+const OutIconUser = () => (                
+    <Space>
+        <AiOutlineUser size={25}/>
+    </Space>
+)
+
+const OutIconPassword = () => (            
+    <Space>
+        <AiOutlineLock size={25}/>
+    </Space>
+)
 
 export default function Login() {
-    // const history = useHistory();
+    const [form, setForm] = useState({
+        user: '',
+        password: '',
+    });
+
+    const [visible, setVisible] = useState(false);
+    const [focus, setFocus] = useState(false);
+    const navigate = useNavigate();
+
+    function btnContinue() {
+        form.user == '' || form.password == '' ? setVisible(true) : nextPage();        
+    }
+
+    function nextPage() {
+        setVisible(false);
+        navigate('/home');
+    }   
+
     return (
         <Main>
             <SectionLeft>
@@ -16,17 +50,45 @@ export default function Login() {
                     <DivBottom>
                         <LoginText>Login</LoginText>
                         <UserDivInput>
-                            <Input type="text" /> 
-                            <AiOutlineUser />
+                            <Input
+                                type="text"
+                                placeholder="Usuário"
+                                value={form.user}
+                                onChange={(e) => setForm({
+                                    ...form,
+                                    user: e.target.value
+                                })}
+                                onFocus={() => setFocus(true)}
+                                onBlur={() => setFocus(false)}
+                            />
+                            {!focus ? OutIconUser() : <AiOutlineUser size={25}/>}
                         </UserDivInput>
                         <PasswordDivInput>
-                            <Input type="password"/> 
-                            <AiOutlineLock />
+                            <Input 
+                                type="password"                                
+                                placeholder="Senha"
+                                value={form.password}
+                                onChange={(e) => setForm({
+                                    ...form,
+                                    password: e.target.value
+                                })}
+                                onFocus={() => setFocus(true)}
+                                onBlur={() => setFocus(false)}
+                            />                            
+                            {!focus ? OutIconPassword() : <AiOutlineLock size={25}/>}
                         </PasswordDivInput>
-                        <ContinueButton>Continuar</ContinueButton>       
+                        {visible && 
+                            <Alert>
+                                Ops, usuário ou senha inválidos. Tente novamente!
+                            </Alert>
+                        }
+                        <ContinueButton
+                            onClick={() => btnContinue()}
+                        >
+                            Continuar
+                        </ContinueButton>       
                     </DivBottom>         
-                </DivLeft>
-                
+                </DivLeft>                
             </SectionLeft>
 
             <SectionRight>
