@@ -15,6 +15,9 @@ export const Time = styled.p`
     margin-bottom: -40px;
 
     color: #222222;
+    @media screen and (max-width: 767px){
+        margin-top: -5rem;        
+    }
 `;
 
 export const Date = styled.p`

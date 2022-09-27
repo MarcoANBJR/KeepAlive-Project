@@ -6,12 +6,13 @@ type PropsButton = {
     nameButton: string
 }
 
-export default function ButtonHome({dark, nameButton}: PropsButton) {
+export default function ButtonFooter({dark, nameButton}: PropsButton) {
     const navigate = useNavigate();
     return (
         <StyleButton 
             dark={dark}
-            onClick={() => dark ? window.open('http://google.com', 'Google', 'height=800, width=600') : navigate('/')}
+            onClick={() => dark ? navigate('/') : window.open('http://google.com', 'Google', 'height=800, width=600')}
+            // onClick={() => dark ? navigate('/') : window.open('http://google.com', '_blank')}
         >
             {nameButton}
         </StyleButton>

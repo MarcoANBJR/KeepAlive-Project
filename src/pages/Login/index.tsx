@@ -1,4 +1,4 @@
-import { DivLeft, LoginTitle, Img, Main, LoginInfo, SectionLeft, SectionRight, LoginText, DivTop, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, Space } from "./styles";
+import { DivLeft, LoginTitle, Img, Main, LoginInfo, SectionLeft, SectionRight, LoginText, DivTop, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, Space, NoSpace } from "./styles";
 import logoCompasso from '../../assets/Logo-Compasso-Branco.png'
 import { AiOutlineLock, AiOutlineUser } from "react-icons/ai";
 import { useState } from "react";
@@ -12,11 +12,21 @@ const OutIconUser = () => (
         <AiOutlineUser size={25}/>
     </Space>
 )
+const InIconUser = () => (                
+    <NoSpace>
+        <AiOutlineUser size={25}/>
+    </NoSpace>
+)
 
 const OutIconPassword = () => (            
     <Space>
         <AiOutlineLock size={25}/>
     </Space>
+)
+const InIconPassword = () => (            
+    <NoSpace>
+        <AiOutlineLock size={25}/>
+    </NoSpace>
 )
 
 export default function Login() {
@@ -61,7 +71,7 @@ export default function Login() {
                                 onFocus={() => setFocus(true)}
                                 onBlur={() => setFocus(false)}
                             />
-                            {!focus ? OutIconUser() : <AiOutlineUser size={25}/>}
+                            {!focus ? OutIconUser() : InIconUser()}
                         </UserDivInput>
                         <PasswordDivInput>
                             <Input 
@@ -76,7 +86,7 @@ export default function Login() {
                                 onFocus={() => setFocus(true)}
                                 onBlur={() => setFocus(false)}
                             />                            
-                            {!focus ? OutIconPassword() : <AiOutlineLock size={25}/>}
+                            {!focus ? OutIconPassword() : InIconPassword()}
                         </PasswordDivInput>
                         {visible && 
                             <Alert>

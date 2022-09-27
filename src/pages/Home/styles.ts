@@ -16,6 +16,9 @@ export const HeaderImgCompass = styled.img`
     max-width: 150px;
     max-height: 42.75px;
     padding: 25px 0 0 40px;
+    @media screen and (max-width: 768px) {        
+        padding: 25px 33px 0 40px;
+    }
 `;
 
 export const HeaderImgTime = styled.img`
@@ -46,6 +49,14 @@ export const DivText = styled.div`
     @media screen and (max-width: 768px) {
         padding-right: 5.375rem;        
     }
+    @media screen and (max-width: 425px) {
+        padding-bottom: 10rem;
+        padding-right: 5.375rem;        
+    }
+    @media screen and (max-width: 320px) {
+        padding-bottom: 10rem;
+        padding-right: 1.375rem;       
+    }
 `;
 
 export const TextIng = styled.h1`
@@ -54,6 +65,11 @@ export const TextIng = styled.h1`
     line-height: 5.063rem;
     text-align: right;
     color: #C12D18;
+    
+    @media screen and (max-width: 425px) {
+        font-size: 2rem;     
+        line-height: 6.063rem;
+    }
 `;
 
 export const FirstTextIng = styled(TextIng)`
@@ -87,10 +103,13 @@ export const Footer = styled.footer`
 `;
 
 export const TextFooter = styled.p`
-    font-size: 0.75rem;
-    line-height: 0.938rem;
+    font-size: 12px;
+    line-height: 15px;
     text-align: right;
-    width: 33.813rem;   
+    width: 33.813rem;  
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const Divisor = styled.div`
@@ -98,7 +117,10 @@ export const Divisor = styled.div`
     height: 0px;
     border: 1px solid;
     transform: rotate(90deg);
-    `;
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+`;
 
 export const TextCountDown = styled.p`    
     width: 109px;
@@ -126,6 +148,12 @@ export const DivButton = styled.div`
     @media screen and (max-width: 1024px) {
         padding-left: 13.063rem;        
     }
+    @media screen and (max-width: 425px) {
+        padding-left: 4.063rem;       
+    }
+    @media screen and (max-width: 320px) {
+        padding-left: 1.063rem;       
+    }
 `;
 
 export const BodyHome = styled.div`
@@ -139,22 +167,42 @@ export const BodyHome = styled.div`
     @media screen and (max-width: 1024px) {
         background-position: -21% 91%;        
     }
+    @media screen and (max-width: 425px) {
+        background-position: -21% 94%;
+    }   
 `;
 
 export const GlobalStyle = createGlobalStyle`
     @media screen and (max-width: 1440px) {
         :root{
             font-size: 13px;
+            transition: 1s;
         }
     }
     @media screen and (max-width: 1024px) {
         :root{
-            font-size: 10px;            
+            font-size: 10px;  
+            transition: 1s;    
         }
     }        
     @media screen and (max-width: 768px) {
         :root{
-            font-size: 9px;            
+            font-size: 9px;    
+            transition: 1s;   
+        }
+    }        
+    @media screen and (max-width: 425px) {
+        background-position: -21% 94%;
+        :root{
+            font-size: 9px;   
+            transition: 1s;      
+        }
+    }        
+    @media screen and (max-width: 425px) {
+        background-position: -21% 94%;
+        :root{
+            font-size: 8px; 
+            transition: 1s;      
         }
     }        
 `;

@@ -74,6 +74,11 @@ export const DivInput = styled.div`
 export const Space = styled.div`
     position: absolute;
     right: -40px;
+    transition: 0.5s;
+`;
+export const NoSpace = styled.div`
+    position: absolute;
+    right: 20px;
     transition: 1s;
 `;
 export const Input = styled.input<PropBorder>`
@@ -87,16 +92,25 @@ export const Input = styled.input<PropBorder>`
     font-size: 1.3rem;
     color: #E0E0E0;
     width: 100%;
+    padding-right: 15%;
     
     ${({border}) => border && 'border: 1px solid #E9B425'}; 
     
     font-family: 'Mark Pro';
     &::placeholder {
         color: #E0E0E0;
+        font-size: 1.3rem;
+    }
+    
+    @media screen and (max-width: 1024px) {
+        padding-right: 20%;
     }
 `;
 
-// export cosnt InputPassword
+//! Como consertar Placeholder 
+// export const InputPassword = styled(Input)`
+//     font-size: 2rem;
+// `;
 
 export const ContinueButton = styled.button`
     width: 100%;

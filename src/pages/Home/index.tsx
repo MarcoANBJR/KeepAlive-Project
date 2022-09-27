@@ -1,18 +1,13 @@
-import { useNavigate } from "react-router-dom";
 import { BodyHome, DivButton, Divisor, DivText, FirstTextIng, Footer, GlobalStyle, Header, HeaderImgCompass, HeaderImgTemp, Main, Seconds, TextCountDown, TextCounter, TextFooter, TextIng, TextPt } from "./styles";
 import logoHeader from '../../assets/home-compasso-preto.svg';
 import tempoHeader from '../../assets/temperatura-TEMPORARIO.png';
 import CountDown from "./CountDown";
 import { useDate } from "./Date";
 import { DivTime, Time, Date } from "./Date/styles";
-import ButtonHome from "./Date/ButtonContinue";
+import ButtonFooter from "./Date/ButtonFooter";
 
 export default function Home() {
     const { date, time } = useDate();
-    const navigate = useNavigate()
-    function voltar() {
-        navigate('/')
-    }
     return (
         <BodyHome>
             <GlobalStyle />
@@ -49,8 +44,8 @@ export default function Home() {
                     <TextCounter>seconds</TextCounter>
                 </Seconds>
                 <DivButton>
-                    <ButtonHome dark={true} nameButton={'Continuar Navegando'} />
-                    <ButtonHome dark={false} nameButton={'Logout'} />
+                    <ButtonFooter dark={false} nameButton={'Continuar Navegando'} />
+                    <ButtonFooter dark={true} nameButton={'Logout'} />
                 </DivButton>
             </Footer>
         </BodyHome>
