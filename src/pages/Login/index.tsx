@@ -5,8 +5,6 @@ import { useState } from "react";
 import Alert from "./Alert";
 import { useNavigate } from "react-router-dom";
 
-//! YUP
-
 const OutIconUser = () => (                
     <Space>
         <AiOutlineUser size={25}/>
