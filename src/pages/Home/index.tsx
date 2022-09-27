@@ -1,13 +1,24 @@
-import { BodyHome, DivButton, Divisor, DivText, FirstTextIng, Footer, GlobalStyle, Header, HeaderImgCompass, HeaderImgTemp, Main, Seconds, TextCountDown, TextCounter, TextFooter, TextIng, TextPt } from "./styles";
+import { BodyHome, City, DivButton, Divisor, DivText, FirstTextIng, Footer, GlobalStyle, Header, HeaderImgCompass, HeaderImgTemp, IconCloud, Main, Seconds, Temp, TextCountDown, TextCounter, TextFooter, TextIng, TextPt } from "./styles";
 import logoHeader from '../../assets/home-compasso-preto.svg';
 import tempoHeader from '../../assets/temperatura-TEMPORARIO.png';
 import CountDown from "./CountDown";
 import { useDate } from "./Date";
 import { DivTime, Time, Date } from "./Date/styles";
 import ButtonFooter from "./Date/ButtonFooter";
+import { Tempo } from "./API";
+import { useEffect, useState } from "react";
+import { WiDayCloudyGusts } from "react-icons/wi";
 
 export default function Home() {
     const { date, time } = useDate();
+    const [ tempo, setTempo ] = useState({name: '', cidade: '', temperatura: 0});
+    useEffect(() => {
+        Tempo().then((res) => {
+            setTempo({name: res.name, cidade: res.sys.country, temperatura: res.main.temp})
+        })
+    }, [])
+
+
     return (
         <BodyHome>
             <GlobalStyle />
@@ -17,7 +28,15 @@ export default function Home() {
                     <Time>{time}</Time>
                     <Date>{date}</Date>
                 </DivTime>
-                <HeaderImgTemp src={tempoHeader}/>
+                <HeaderImgTemp>
+                    <City>{tempo.name} - {tempo.cidade}</City>                    
+                    <Temp>
+                        <IconCloud>
+                            <WiDayCloudyGusts />
+                        </IconCloud>
+                        {tempo.temperatura.toFixed(0)}°
+                    </Temp>
+                </HeaderImgTemp>
             </Header>
 
             <Main>
@@ -49,5 +68,6 @@ export default function Home() {
                 </DivButton>
             </Footer>
         </BodyHome>
+        
     )
 }

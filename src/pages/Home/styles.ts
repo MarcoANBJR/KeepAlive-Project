@@ -1,3 +1,4 @@
+import { WiDayCloudyGusts } from "react-icons/wi";
 import styled, { createGlobalStyle } from "styled-components";
 import imgLogo from '../../assets/bola-LogoCompasso.jpg'
 
@@ -26,13 +27,35 @@ export const HeaderImgTime = styled.img`
     height: 169px;
 `;
 
-export const HeaderImgTemp = styled.img`
+export const HeaderImgTemp = styled.div`
     width: 121px;
     height: 78px;
     padding: 25px 40px 0 0;
     @media screen and (max-width: 767px) {
         display: none;
     }
+`;
+export const City = styled.div`
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 18px;
+    text-align: center;
+    color: #222222;
+`;
+export const Temp = styled.div`
+    display: flex;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 61px;
+    text-align: center;
+    color: #222222;
+`;
+
+export const IconCloud = styled(WiDayCloudyGusts)`
+    font-size: 3rem;
+    font-weight: 500;
+    margin-top: 8px;
+
 `;
 
 //! Body

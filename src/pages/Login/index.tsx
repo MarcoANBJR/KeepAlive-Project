@@ -1,5 +1,5 @@
 import { DivLeft, LoginTitle, Img, Main, LoginInfo, SectionLeft, SectionRight, LoginText, DivTop, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, Space, NoSpace } from "./styles";
-import logoCompasso from '../../assets/Logo-Compasso-Branco.png'
+import logoCompasso from '../../assets/Logo-Compasso-Branco.png';
 import { AiOutlineLock, AiOutlineUser } from "react-icons/ai";
 import { useState } from "react";
 import Alert from "./Alert";
