@@ -6,7 +6,6 @@ import Alert from "./Alert";
 import { useNavigate } from "react-router-dom";
 
 //! YUP
-//! SetTimeOut
 
 const OutIconUser = () => (                
     <Space>
@@ -31,7 +30,7 @@ export default function Login() {
     const navigate = useNavigate();
 
     function btnContinue() {
-        form.user == '' || form.password == '' ? setVisible(true) : nextPage();        
+        form.user == '' || form.password.length < 3 ? setVisible(true) : nextPage();        
     }
 
     function nextPage() {
@@ -54,6 +53,7 @@ export default function Login() {
                                 type="text"
                                 placeholder="Usuário"
                                 value={form.user}
+                                border={visible}
                                 onChange={(e) => setForm({
                                     ...form,
                                     user: e.target.value
@@ -68,6 +68,7 @@ export default function Login() {
                                 type="password"                                
                                 placeholder="Senha"
                                 value={form.password}
+                                border={visible}
                                 onChange={(e) => setForm({
                                     ...form,
                                     password: e.target.value

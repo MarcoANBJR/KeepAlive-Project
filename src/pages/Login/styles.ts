@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import background from '../../assets/login-background.svg'
+import background from '../../assets/notebook-login.jpg'
+
+type PropBorder = {
+    border: boolean | any
+}
 
 export const Main = styled.main`
     width: 100vw;
@@ -11,6 +15,9 @@ export const Main = styled.main`
 
 export const SectionLeft = styled.section`
     width: 50%;
+    @media screen and (max-width: 1024px) {
+        width: 100%;
+    }
 `;
 
 export const DivLeft = styled.div`
@@ -19,6 +26,11 @@ export const DivLeft = styled.div`
     flex-direction: column;
     justify-content: center;
     padding-left: 30%;
+    padding-right: 20%;
+    @media screen and (max-width: 1024px) {
+        padding: 0 15%;
+        align-items: center;
+    }
 `;
 
 export const DivTop = styled.div`
@@ -48,14 +60,9 @@ export const LoginText = styled.p`
 `;
 
 export const DivInput = styled.div`
-    display: flex;
+    display: flex;    
     justify-content: space-between;
     align-items: center;
-    padding: 0 15px;
-    background: #26292C;
-    border: 1px solid #FFFFFF;
-    border-radius: 50px;
-    height: 60px;       
 `;
     export const UserDivInput = styled(DivInput)`
         margin-bottom: 2rem;
@@ -69,20 +76,30 @@ export const Space = styled.div`
     right: -40px;
     transition: 1s;
 `;
-export const Input = styled.input`
+export const Input = styled.input<PropBorder>`
+    
+    border: 1px solid #FFFFFF;
+    border-radius: 3.125rem;
+    height: 3.75rem; 
+    padding: 0 0.938rem;
     background-color: transparent;
-    border: none;
     outline: none;
     font-size: 1.3rem;
     color: #E0E0E0;
     width: 100%;
+    
+    ${({border}) => border && 'border: 1px solid #E9B425'}; 
+    
+    font-family: 'Mark Pro';
     &::placeholder {
         color: #E0E0E0;
     }
 `;
 
+// export cosnt InputPassword
+
 export const ContinueButton = styled.button`
-    width: 379px;
+    width: 100%;
     height: 67px;   
     color: #FFFFFF;
     font-size: 1.125rem;
@@ -104,6 +121,9 @@ export const SectionRight = styled(SectionLeft)`
     display: flex;
     justify-content: center;
     padding-top: 2%;
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
 `;
 
 export const Img = styled.img`

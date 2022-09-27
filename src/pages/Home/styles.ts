@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import imgLogo from '../../assets/bola-LogoCompasso.jpg'
 
 //! Header
 
@@ -6,6 +7,9 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+    }
 `;
 
 export const HeaderImgCompass = styled.img`
@@ -23,30 +27,25 @@ export const HeaderImgTemp = styled.img`
     width: 121px;
     height: 78px;
     padding: 25px 40px 0 0;
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
 `;
 
 //! Body
 
 export const Main = styled.main`
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 `;
-
-export const DivImg = styled.div`
-    position: relative;
-`;
-
-export const ImgLogo = styled.img`    
-    position: absolute;
-    top: 88px;
-    z-index: -1;
-`;
-
 
 export const DivText = styled.div`
     padding-right: 8.375rem;
-    padding-top: 10.375rem;
-    padding-bottom: 16.375rem;
+    /* padding-top: 10.375rem;
+    padding-bottom: 16.375rem; */
+    @media screen and (max-width: 768px) {
+        padding-right: 5.375rem;        
+    }
 `;
 
 export const TextIng = styled.h1`
@@ -73,19 +72,25 @@ export const TextPt = styled.p`
 //! Footer
 
 export const Footer = styled.footer`
-    max-height: 6.25rem;
     background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
     display: flex;
     justify-content: flex-end;
     align-items: center;
     color: white;
+    height: 9vh;
+    @media screen and (max-width: 1440px) {
+        height: 8vh;
+    }    
+    @media screen and (max-width: 768px) {
+        height: 7vh;
+    }
 `;
 
 export const TextFooter = styled.p`
-    font-size: 12px;
-    line-height: 15px;
+    font-size: 0.75rem;
+    line-height: 0.938rem;
     text-align: right;
-    width: 541px;   
+    width: 33.813rem;   
 `;
 
 export const Divisor = styled.div`
@@ -100,12 +105,12 @@ export const TextCountDown = styled.p`
     font-size: 14px;
     line-height: 18px;
     text-align: right;
-    padding-left: 123px;
+    padding-left: 7.688rem;
 `;
 
 export const Seconds = styled.div`
     text-align: center;
-    padding-left: 33px;
+    padding-left: 2.063rem;
 `;
 
 export const TextCounter = styled.p`
@@ -117,18 +122,39 @@ export const TextCounter = styled.p`
 export const DivButton = styled.div`
     display: flex;
     padding-left: 23.063rem;
+    height: 100%;
+    @media screen and (max-width: 1024px) {
+        padding-left: 13.063rem;        
+    }
 `;
 
-export const ButtonLogout = styled.button`
-    width: 131px;
-    height: 99px;
-    border: none;
-
-    background: transparent;
-    color: white;
+export const BodyHome = styled.div`
+    background: url(${imgLogo}) no-repeat;
+    background-size: 40%;
+    background-position: -21% 87%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media screen and (max-width: 1024px) {
+        background-position: -21% 91%;        
+    }
 `;
 
-export const ButtonContinue = styled(ButtonLogout)`
-    background: #FFFFFF;
-    color: #C13216;
+export const GlobalStyle = createGlobalStyle`
+    @media screen and (max-width: 1440px) {
+        :root{
+            font-size: 13px;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        :root{
+            font-size: 10px;            
+        }
+    }        
+    @media screen and (max-width: 768px) {
+        :root{
+            font-size: 9px;            
+        }
+    }        
 `;
