@@ -12,7 +12,7 @@ export const Time = styled.p`
     font-weight: 700;
     font-size: 9rem;
     line-height: 183px;
-    margin-bottom: -40px;
+    margin-bottom: -40px;    
 
     color: #222222;
     @media screen and (max-width: 767px){

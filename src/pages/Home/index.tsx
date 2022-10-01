@@ -1,6 +1,5 @@
 import { BodyHome, City, DivButton, Divisor, DivText, FirstTextIng, Footer, GlobalStyle, Header, HeaderImgCompass, HeaderImgTemp, IconCloud, Main, Seconds, Temp, TextCountDown, TextCounter, TextFooter, TextIng, TextPt } from "./styles";
 import logoHeader from '../../assets/home-compasso-preto.svg';
-import tempoHeader from '../../assets/temperatura-TEMPORARIO.png';
 import CountDown from "./CountDown";
 import { useDate } from "./Date";
 import { DivTime, Time, Date } from "./Date/styles";

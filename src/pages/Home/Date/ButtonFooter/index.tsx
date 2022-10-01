@@ -11,8 +11,8 @@ export default function ButtonFooter({dark, nameButton}: PropsButton) {
     return (
         <StyleButton 
             dark={dark}
-            onClick={() => dark ? navigate('/') : window.open('http://google.com', 'Google', 'height=800, width=600')}
-            // onClick={() => dark ? navigate('/') : window.open('http://google.com', '_blank')}
+            // onClick={() => dark ? navigate('/') : window.open('http://google.com', 'Google', 'height=800, width=600')}
+            onClick={() => dark ? navigate('/') : open('http://google.com', '_blank')}
         >
             {nameButton}
         </StyleButton>

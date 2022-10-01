@@ -1,31 +1,11 @@
-import { DivLeft, LoginTitle, Img, Main, LoginInfo, SectionLeft, SectionRight, LoginText, DivTop, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, Space, NoSpace } from "./styles";
-import logoCompasso from '../../assets/Logo-Compasso-Branco.png';
+import { DivLeft, LoginTitle, Img, Main, LoginInfo, SectionLeft, SectionRight, LoginText, DivTop, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, IconUser, IconPassword } from "./styles";
+import logoCompasso from '../../assets/Logo-Compasso-Branco.png'
 import { AiOutlineLock, AiOutlineUser } from "react-icons/ai";
 import { useState } from "react";
 import Alert from "./Alert";
 import { useNavigate } from "react-router-dom";
 
-const OutIconUser = () => (                
-    <Space>
-        <AiOutlineUser size={25}/>
-    </Space>
-)
-const InIconUser = () => (                
-    <NoSpace>
-        <AiOutlineUser size={25}/>
-    </NoSpace>
-)
-
-const OutIconPassword = () => (            
-    <Space>
-        <AiOutlineLock size={25}/>
-    </Space>
-)
-const InIconPassword = () => (            
-    <NoSpace>
-        <AiOutlineLock size={25}/>
-    </NoSpace>
-)
+//! YUP
 
 export default function Login() {
     const [form, setForm] = useState({
@@ -34,7 +14,8 @@ export default function Login() {
     });
 
     const [visible, setVisible] = useState(false);
-    const [focus, setFocus] = useState(false);
+    const [focusUser, setFocusUser] = useState(false);
+    const [focusPassword, setFocusPassword] = useState(false);
     const navigate = useNavigate();
 
     function btnContinue() {
@@ -66,10 +47,10 @@ export default function Login() {
                                     ...form,
                                     user: e.target.value
                                 })}
-                                onFocus={() => setFocus(true)}
-                                onBlur={() => setFocus(false)}
+                                onFocus={() => setFocusUser(true)}
+                                onBlur={() => setFocusUser(false)}
                             />
-                            {!focus ? OutIconUser() : InIconUser()}
+                            <IconUser focusUser={focusUser}/>
                         </UserDivInput>
                         <PasswordDivInput>
                             <Input 
@@ -81,12 +62,12 @@ export default function Login() {
                                     ...form,
                                     password: e.target.value
                                 })}
-                                onFocus={() => setFocus(true)}
-                                onBlur={() => setFocus(false)}
-                            />                            
-                            {!focus ? OutIconPassword() : InIconPassword()}
+                                onFocus={() => setFocusPassword(true)}
+                                onBlur={() => setFocusPassword(false)}
+                            />
+                            <IconPassword focusPassword={focusPassword} />
                         </PasswordDivInput>
-                        {visible && 
+                        {visible &&
                             <Alert>
                                 Ops, usuário ou senha inválidos. Tente novamente!
                             </Alert>

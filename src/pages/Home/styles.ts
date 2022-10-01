@@ -16,7 +16,7 @@ export const Header = styled.header`
 export const HeaderImgCompass = styled.img`
     max-width: 150px;
     max-height: 42.75px;
-    padding: 25px 0 0 40px;
+    padding: 25px 0 55px 40px;
     @media screen and (max-width: 768px) {        
         padding: 25px 33px 0 40px;
     }
@@ -30,7 +30,7 @@ export const HeaderImgTime = styled.img`
 export const HeaderImgTemp = styled.div`
     width: 121px;
     height: 78px;
-    padding: 25px 40px 0 0;
+    padding: 10px 40px 0 0;
     @media screen and (max-width: 767px) {
         display: none;
     }

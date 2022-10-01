@@ -1,8 +1,13 @@
+import { AiOutlineLock, AiOutlineUser } from 'react-icons/ai';
 import styled from 'styled-components';
 import background from '../../assets/notebook-login.jpg'
 
 type PropBorder = {
-    border: boolean | any
+    border: boolean
+}
+type PropIcon = {
+    focusUser?: boolean,
+    focusPassword?: boolean
 }
 
 export const Main = styled.main`
@@ -71,16 +76,21 @@ export const DivInput = styled.div`
         margin-bottom: 7.188rem;
     `;
 
-export const Space = styled.div`
+export const IconUser = styled(AiOutlineUser)<PropIcon>`    
     position: absolute;
-    right: -40px;
+    font-size: 25px;
     transition: 0.5s;
+
+    ${({focusUser}) => focusUser ? 'right: 20px' : 'right: -40px'}
 `;
-export const NoSpace = styled.div`
+export const IconPassword = styled(AiOutlineLock)<PropIcon>`    
     position: absolute;
-    right: 20px;
-    transition: 1s;
+    font-size: 25px;
+    transition: 0.5s;
+
+    ${({focusPassword}) => focusPassword ? 'right: 20px' : 'right: -40px'}
 `;
+
 export const Input = styled.input<PropBorder>`
     
     border: 1px solid #FFFFFF;
