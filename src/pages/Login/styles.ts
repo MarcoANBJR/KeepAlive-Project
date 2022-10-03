@@ -11,8 +11,8 @@ type PropIcon = {
 }
 
 export const Main = styled.main`
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
+    height: 100vh; */
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     display: flex;
     color: #E0E0E0;
@@ -34,6 +34,7 @@ export const DivLeft = styled.div`
     padding: 0 27%;
     @media screen and (max-width: 1024px) {
         padding: 0 30%;
+        height: 875px;
     }
     @media screen and (max-width: 768px) {
         padding: 0 25%;
@@ -43,6 +44,7 @@ export const DivLeft = styled.div`
     }
     @media screen and (max-width: 280px) {        
         padding: 0 19% 0 8%;
+        height: 100vh;
     }
 `;
 

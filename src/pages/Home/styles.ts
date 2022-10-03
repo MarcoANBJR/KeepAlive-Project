@@ -126,8 +126,8 @@ export const TextPt = styled.p`
     text-align: right;
     color: #222222;
     @media screen and (max-width: 425px) {
-        padding-bottom: 6%;
-        padding-top: 1%;
+        padding-bottom: 7%;
+        padding-top: 2%;
     }
 `;
 
@@ -142,9 +142,15 @@ export const Footer = styled.footer`
     height: 9vh;
     @media screen and (max-width: 1440px) {
         /* height: 8vh; */
-    }    
+    }
+    @media screen and (max-width: 875px) {
+        height: 20vh;
+    }
     @media screen and (max-width: 768px) {
-        /* height: 50vh; */
+        height: 9vh;
+    }
+    @media screen and (min-height: 767px) {
+        height: 10vh;
     }
     @media screen and (max-width: 425px) {
         height: 20%;
@@ -265,6 +271,9 @@ export const BodyHome = styled.div`
     @media screen and (max-width: 1024px) {
         background-position: -21% 91%;        
     }
+    @media screen and (max-width: 875px) {
+        height: 875px;      
+    }
     @media screen and (max-width: 768px) {
         height: 875px;      
     }
@@ -289,7 +298,7 @@ export const GlobalStyle = createGlobalStyle`
             transition: 1s;    
         }
     }        
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 875px) {
         :root{
             font-size: 9px;    
             transition: 1s;   
