@@ -20,6 +20,9 @@ export const HeaderImgCompass = styled.img`
     @media screen and (max-width: 768px) {        
         padding: 25px 33px 0 40px;
     }
+    @media screen and (max-width: 425px) {        
+        padding: 5% 0;
+    }
 `;
 
 export const HeaderImgTime = styled.img`
@@ -31,8 +34,12 @@ export const HeaderImgTemp = styled.div`
     width: 121px;
     height: 78px;
     padding: 10px 40px 0 0;
-    @media screen and (max-width: 767px) {
-        display: none;
+    @media screen and (max-width: 425px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: unset;        
+        padding: unset;
     }
 `;
 export const City = styled.div`
@@ -40,7 +47,10 @@ export const City = styled.div`
     font-size: 0.875rem;
     line-height: 18px;
     text-align: center;
-    color: #222222;
+    color: #222222;    
+    @media screen and (max-width: 425px){
+        font-size: 1.8rem;      
+    }
 `;
 export const Temp = styled.div`
     display: flex;
@@ -49,6 +59,9 @@ export const Temp = styled.div`
     line-height: 61px;
     text-align: center;
     color: #222222;
+    @media screen and (max-width: 425px){
+        font-size: 7rem;      
+    }
 `;
 
 export const IconCloud = styled(WiDayCloudyGusts)`
@@ -73,12 +86,11 @@ export const DivText = styled.div`
         padding-right: 5.375rem;        
     }
     @media screen and (max-width: 425px) {
-        padding-bottom: 10rem;
-        padding-right: 5.375rem;        
+        padding: 0 3.3rem 10rem 3.3rem;      
     }
     @media screen and (max-width: 320px) {
         padding-bottom: 10rem;
-        padding-right: 1.375rem;       
+        padding-right: 2.375rem;       
     }
 `;
 
@@ -90,22 +102,33 @@ export const TextIng = styled.h1`
     color: #C12D18;
     
     @media screen and (max-width: 425px) {
-        font-size: 2rem;     
+        font-size: 3rem;     
         line-height: 6.063rem;
+    }
+    @media screen and (max-width: 320px) {
+        font-size: 3rem;     
+        line-height: 3.063rem;
     }
 `;
 
 export const FirstTextIng = styled(TextIng)`
     font-size: 2.25rem;
     line-height: 2.875rem;
+    @media screen and (max-width: 425px) {
+        font-size: 2.5rem;
+    }
 `;
 
 export const TextPt = styled.p`    
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     line-height: 1.875rem;
     text-align: right;
     color: #222222;
+    @media screen and (max-width: 425px) {
+        padding-bottom: 6%;
+        padding-top: 1%;
+    }
 `;
 
 //! Footer
@@ -118,10 +141,30 @@ export const Footer = styled.footer`
     color: white;
     height: 9vh;
     @media screen and (max-width: 1440px) {
-        height: 8vh;
+        /* height: 8vh; */
     }    
     @media screen and (max-width: 768px) {
-        height: 7vh;
+        /* height: 50vh; */
+    }
+    @media screen and (max-width: 425px) {
+        height: 20%;
+        display: grid;
+        grid-template-areas: 
+            'text text text'
+            'bar bar bar'
+            'textS seconds buttons'
+        ;
+    }
+    @media screen and (max-width: 320px) {
+        height: 32%;
+        display: grid;
+        grid-template-areas: 
+            'text text text'
+            'bar bar bar'
+            'textS seconds seconds'
+            'buttons buttons buttons';
+        ;
+        align-items: flex-end;
     }
 `;
 
@@ -131,7 +174,13 @@ export const TextFooter = styled.p`
     text-align: right;
     width: 33.813rem;  
     @media screen and (max-width: 768px) {
-        display: none;
+    }
+    @media screen and (max-width: 425px) {
+        width: 80%;  
+        justify-self: center;
+        text-align: center;
+
+        grid-area: text;
     }
 `;
 
@@ -140,8 +189,16 @@ export const Divisor = styled.div`
     height: 0px;
     border: 1px solid;
     transform: rotate(90deg);
+    @media screen and (max-width: 1440px) {
+        width: 3.2rem;
+    }
     @media screen and (max-width: 768px) {
-        display: none;
+    }
+    @media screen and (max-width: 425px) {
+        grid-area: bar;
+        transform: rotate(0deg);
+        width: 80%;
+        justify-self: center;
     }
 `;
 
@@ -151,11 +208,25 @@ export const TextCountDown = styled.p`
     line-height: 18px;
     text-align: right;
     padding-left: 7.688rem;
+    @media screen and (max-width: 768px) {
+        padding-left: unset;
+    }
+    @media screen and (max-width: 425px) {
+        grid-area: textS;
+    }
 `;
 
 export const Seconds = styled.div`
     text-align: center;
     padding-left: 2.063rem;
+    @media screen and (max-width: 425px) {
+    padding-left: 0rem;
+        grid-area: seconds;
+        justify-self: flex-start;
+    }
+    @media screen and (max-width: 320px) {
+        justify-self: unset;
+    }
 `;
 
 export const TextCounter = styled.p`
@@ -171,11 +242,15 @@ export const DivButton = styled.div`
     @media screen and (max-width: 1024px) {
         padding-left: 13.063rem;        
     }
+    @media screen and (max-width: 768px) {
+        padding-left: 6.063rem;        
+    }
     @media screen and (max-width: 425px) {
-        padding-left: 4.063rem;       
+        padding-left: 0rem;        
+        grid-area: buttons;
     }
     @media screen and (max-width: 320px) {
-        padding-left: 1.063rem;       
+        height: 8rem;
     }
 `;
 
@@ -190,8 +265,14 @@ export const BodyHome = styled.div`
     @media screen and (max-width: 1024px) {
         background-position: -21% 91%;        
     }
+    @media screen and (max-width: 768px) {
+        height: 875px;      
+    }
     @media screen and (max-width: 425px) {
-        background-position: -21% 94%;
+        background-position: -17% 78%;
+    }   
+    @media screen and (max-width: 320px) {
+        background-position: -17% 64.5%;
     }   
 `;
 

@@ -58,7 +58,7 @@ export default function Home() {
                 <Divisor />
                 <TextCountDown>Application refresh in</TextCountDown>
                 <Seconds>
-                    <CountDown maxCounter={30}/> 
+                    <CountDown maxCounter={5000}/> 
                     <TextCounter>seconds</TextCounter>
                 </Seconds>
                 <DivButton>

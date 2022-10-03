@@ -1,6 +1,5 @@
-import { DivLeft, LoginTitle, Img, Main, LoginInfo, SectionLeft, SectionRight, LoginText, DivTop, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, IconUser, IconPassword } from "./styles";
+import { DivLeft, LoginTitle, ImgRight, Main, LoginInfo, SectionLeft, SectionRight, LoginText, DivTop, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, IconUser, IconPassword, ImgLeft, GlobalStyle } from "./styles";
 import logoCompasso from '../../assets/Logo-Compasso-Branco.png'
-import { AiOutlineLock, AiOutlineUser } from "react-icons/ai";
 import { useState } from "react";
 import Alert from "./Alert";
 import { useNavigate } from "react-router-dom";
@@ -29,8 +28,10 @@ export default function Login() {
 
     return (
         <Main>
+            <GlobalStyle />
             <SectionLeft>
-                <DivLeft>
+                <DivLeft>                    
+                    <ImgLeft src={logoCompasso}/>
                     <DivTop>
                         <LoginTitle>Olá,</LoginTitle>
                         <LoginInfo>Para continuar navegando de forma segura, efetue o login na rede.</LoginInfo>
@@ -82,7 +83,7 @@ export default function Login() {
             </SectionLeft>
 
             <SectionRight>
-                <Img src={logoCompasso}/>
+                <ImgRight src={logoCompasso}/>
             </SectionRight>
         </Main>
     )

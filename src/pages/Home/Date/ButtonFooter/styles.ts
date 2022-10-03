@@ -20,10 +20,10 @@ export const StyleButton = styled.button<ButtonProps>`
         ${({dark})=> dark ? 'color: #C13216' : 'color: white' };
     }
     
-    @media screen and (max-width: 768px) {
-        width: 10.188rem;
+    @media screen and (max-width: 1024px) {
+        width: 9.188rem;
     }
-    @media screen and (max-width: 768px) {
-        width: 9.5rem;
+    @media screen and (max-width: 425px) {
+        width: 50%;
     }
 `;

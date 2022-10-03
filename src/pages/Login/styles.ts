@@ -1,5 +1,5 @@
 import { AiOutlineLock, AiOutlineUser } from 'react-icons/ai';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import background from '../../assets/notebook-login.jpg'
 
 type PropBorder = {
@@ -30,33 +30,75 @@ export const DivLeft = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 30%;
-    padding-right: 20%;
+    align-items: center;
+    padding: 0 27%;
     @media screen and (max-width: 1024px) {
-        padding: 0 15%;
-        align-items: center;
+        padding: 0 30%;
+    }
+    @media screen and (max-width: 768px) {
+        padding: 0 25%;
+    }
+    @media screen and (max-width: 425px) {        
+    padding: 0 15% 0 14%;
+    }
+    @media screen and (max-width: 280px) {        
+        padding: 0 19% 0 8%;
     }
 `;
 
+export const ImgLeft = styled.img`
+    display: none;
+@media screen and (max-width: 1024px) {
+    display: flex;
+    padding-bottom: 5.438rem;
+    height: 7%;
+    padding-bottom: 20%;
+}
+    display: none;
+@media screen and (max-width: 425px) {
+    height: 6%;
+    padding-bottom: 30%;
+}
+
+`;
+
 export const DivTop = styled.div`
-    max-width: 301px;
+    width: 100%;
 `;
 
 //! Bottom
 
 export const DivBottom = styled.div`
-    max-width: 379px;
+    width: 100%;
     position: relative;
 `;
 
 export const LoginTitle = styled.h1`
     font-size: 3.75rem;
     padding-bottom: 1.063rem;
+    @media screen and (max-width: 280px) {
+        font-size: 3.2rem;
+    }
 `;
 
 export const LoginInfo = styled.p`
     font-size: 1rem;
     padding-bottom: 8.438rem;
+    padding-right: 6rem;
+    line-height: 20px;
+    @media screen and (max-width: 1440px) {
+        padding-right: unset;
+    }
+    @media screen and (max-width: 1024px) {
+        padding-bottom: 5.438rem;
+        padding-right: 6rem;
+    }
+    @media screen and (max-width: 425px) {
+        padding-right: unset;
+    }
+    @media screen and (max-width: 280px) {
+        padding-bottom: 3.438rem;
+    }
 `;
 
 export const LoginText = styled.p`
@@ -74,6 +116,9 @@ export const DivInput = styled.div`
     `;
     export const PasswordDivInput = styled(DivInput)`
         margin-bottom: 7.188rem;
+        @media screen and (max-width: 280px) {
+            margin-bottom: 5.188rem;
+        }
     `;
 
 export const IconUser = styled(AiOutlineUser)<PropIcon>`    
@@ -82,6 +127,9 @@ export const IconUser = styled(AiOutlineUser)<PropIcon>`
     transition: 0.5s;
 
     ${({focusUser}) => focusUser ? 'right: 20px' : 'right: -40px'}
+    /* @media screen and (max-width: 280px) {
+        right: 20px
+    } */
 `;
 export const IconPassword = styled(AiOutlineLock)<PropIcon>`    
     position: absolute;
@@ -89,6 +137,9 @@ export const IconPassword = styled(AiOutlineLock)<PropIcon>`
     transition: 0.5s;
 
     ${({focusPassword}) => focusPassword ? 'right: 20px' : 'right: -40px'}
+    /* @media screen and (max-width: 280px) {
+        ${({focusPassword}) => focusPassword ? 'right: 10px' : 'right: 10px'}
+    } */
 `;
 
 export const Input = styled.input<PropBorder>`
@@ -115,6 +166,9 @@ export const Input = styled.input<PropBorder>`
     @media screen and (max-width: 1024px) {
         padding-right: 20%;
     }
+    @media screen and (max-width: 280px) {
+        height: 3.6rem;
+    }
 `;
 
 //! Como consertar Placeholder 
@@ -124,7 +178,7 @@ export const Input = styled.input<PropBorder>`
 
 export const ContinueButton = styled.button`
     width: 100%;
-    height: 67px;   
+    height: 4.188rem;   
     color: #FFFFFF;
     font-size: 1.125rem;
     font-family: 'Mark Pro';
@@ -134,6 +188,10 @@ export const ContinueButton = styled.button`
     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);    
     filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.5));
     border: none;
+
+    @media screen and (max-width: 280px) {
+    width: 115%;
+    }
 `;
 
 //! Right Side
@@ -150,7 +208,24 @@ export const SectionRight = styled(SectionLeft)`
     }
 `;
 
-export const Img = styled.img`
+export const ImgRight = styled.img`
     max-width: 309px;
     max-height: 69px;
+`;
+
+//! Global Style
+
+export const GlobalStyle = createGlobalStyle`
+    @media screen and (max-width: 425px) {
+        :root{
+            font-size: 15px;
+            transition: 1s;
+        }
+    }
+    @media screen and (max-width: 280px) {
+        :root{
+            font-size: 14px;
+            transition: 1s;
+        }
+    }
 `;

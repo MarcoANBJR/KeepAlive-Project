@@ -6,6 +6,9 @@ export const DivTime = styled.div`
     flex-direction: column;
     justify-content: center;  
     text-align: center;  
+    @media screen and (max-width: 425px) {
+        display: none;
+    }
 `;
 
 export const Time = styled.p`    
