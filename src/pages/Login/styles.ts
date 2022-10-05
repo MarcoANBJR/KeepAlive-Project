@@ -61,6 +61,9 @@ export const ImgLeft = styled.img`
     height: 6%;
     padding-bottom: 30%;
 }
+@media screen and (max-width: 280px) {
+    padding-left: 2rem;
+}
 
 `;
 
@@ -130,7 +133,7 @@ export const IconUser = styled(AiOutlineUser)<PropIcon>`
 
     ${({focusUser}) => focusUser ? 'right: 20px' : 'right: -40px'}
     /* @media screen and (max-width: 280px) {
-        right: 20px
+        ${({focusUser}) => focusUser ? 'right: 15px' : 'right: -40px'}
     } */
 `;
 export const IconPassword = styled(AiOutlineLock)<PropIcon>`    
@@ -170,6 +173,7 @@ export const Input = styled.input<PropBorder>`
     }
     @media screen and (max-width: 280px) {
         height: 3.6rem;
+        padding-right: 25%;
     }
 `;
 

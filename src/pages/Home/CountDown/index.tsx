@@ -13,7 +13,7 @@ export default function CountDown({maxCounter}: prop) {
 
     useEffect(() => {
         counter > 0 ? setTimeout(() => setCounter(counter - 1), 1000) : navigate('/');
-        console.log(counter);
+        // console.log(counter);
         
     },[counter])
 

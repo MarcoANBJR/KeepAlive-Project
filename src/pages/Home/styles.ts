@@ -41,6 +41,9 @@ export const HeaderImgTemp = styled.div`
         width: unset;        
         padding: unset;
     }
+    @media screen and (max-height: 280px) {        
+        padding: 10px 0 0 10px;
+    }
 `;
 export const City = styled.div`
     font-weight: 400;
@@ -103,11 +106,11 @@ export const TextIng = styled.h1`
     
     @media screen and (max-width: 425px) {
         font-size: 3rem;     
-        line-height: 6.063rem;
+        line-height: 5.063rem;
     }
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 375px) {
         font-size: 3rem;     
-        line-height: 3.063rem;
+        line-height: 3.3rem;
     }
 `;
 
@@ -126,8 +129,11 @@ export const TextPt = styled.p`
     text-align: right;
     color: #222222;
     @media screen and (max-width: 425px) {
-        padding-bottom: 7%;
-        padding-top: 2%;
+        padding-bottom: 4%;
+        padding-left: 10%;
+    }
+    @media screen and (max-width: 375px) {
+        line-height: 2.3rem;
     }
 `;
 
@@ -149,9 +155,9 @@ export const Footer = styled.footer`
     @media screen and (max-width: 768px) {
         height: 9vh;
     }
-    @media screen and (min-height: 767px) {
+    /* @media screen and (min-height: 767px) {
         height: 10vh;
-    }
+    }     */
     @media screen and (max-width: 425px) {
         height: 20%;
         display: grid;
@@ -172,6 +178,18 @@ export const Footer = styled.footer`
         ;
         align-items: flex-end;
     }
+    @media screen and (max-height: 425px) {
+        height: 17vh;
+    }
+    @media screen and (max-height: 375px) {
+        height: 19vh;
+    }
+    @media screen and (max-height: 320px) {
+        height: 21vh;
+    }
+    @media screen and (max-height: 280px) {        
+        height: 30vh;
+    }
 `;
 
 export const TextFooter = styled.p`
@@ -185,7 +203,7 @@ export const TextFooter = styled.p`
         width: 80%;  
         justify-self: center;
         text-align: center;
-
+        line-height: 17px;
         grid-area: text;
     }
 `;
@@ -196,7 +214,7 @@ export const Divisor = styled.div`
     border: 1px solid;
     transform: rotate(90deg);
     @media screen and (max-width: 1440px) {
-        width: 3.2rem;
+        width: 4rem;
     }
     @media screen and (max-width: 768px) {
     }
