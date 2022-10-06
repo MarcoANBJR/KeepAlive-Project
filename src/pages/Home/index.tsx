@@ -1,13 +1,14 @@
-import { BodyHome, City, DivButton, Divisor, DivText, FirstTextIng, Footer, GlobalStyle, Header, HeaderImgCompass, HeaderImgTemp, IconCloud, Main, Seconds, Temp, TextCountDown, TextCounter, TextFooter, TextIng, TextPt } from "./styles";
+import { BodyHome, City, DivButton, Divisor, Footer, GlobalStyle, Header, HeaderImgCompass, HeaderWeather, IconCloud, Main, Seconds, Temp, TextCountDown, TextCounter, TextFooter} from "./styles";
 import logoHeader from '../../assets/home-compasso-preto.svg';
 import CountDown from "./CountDown";
 import { useDate } from "./Date";
 import { DivTime, Time, Date } from "./Date/styles";
 import ButtonFooter from "./Date/ButtonFooter";
-import { Tempo } from "./API";
 import { useEffect, useState } from "react";
 import { WiDayCloudyGusts } from "react-icons/wi";
 import OpenWeatherMap from "openweathermap-ts";
+import { TextCenter } from "./TextCenter";
+import { OpenWeather } from "../Components/OpenWeather";
 
 export default function Home() {
 
@@ -16,41 +17,38 @@ export default function Home() {
 
     // const openWeather = new OpenWeatherMap({
     //     apiKey: '2886710fdb8b15cecdd5e8710d80ac20'
-    //   });
-    
+    //   });    
     // openWeather.setUnits('metric');
     // openWeather.setLanguage('pt_br');
-    
-    // const [lat, setLat] = useState<number>();
-    // const [long, setLong] = useState<number>();
-    // useEffect(() => {
+
+    // const [lat, setLat] = useState<number>(-27.59746067670719);
+    // const [long, setLong] = useState<number>(-48.55632441704621);
+
+    // const location = () => {        
+    //     navigator.geolocation && 
     //     navigator.geolocation.getCurrentPosition((position) => {
     //         setLat(position.coords.latitude);
     //         setLong(position.coords.longitude);
+    //     })
+    // }
+
+    // useEffect(() => {
+    //     location();
+
+    //     openWeather.getCurrentWeatherByGeoCoordinates(lat, long).then(async(weather)=> {
+    //         await setTempo({name: weather.name, cidade: weather.sys.country, temperatura: weather.main.temp})
     //     });
-        
 
-    //     lat == 0 && long == 0 ? 
-    //         openWeather.getCurrentWeatherByCityName({ cityName: 'Florianopolis' }).then(async(weather)=> {
-    //             await setTempo({name: weather.name, cidade: weather.sys.country, temperatura: weather.main.temp})
-    //         }) :
-    //         openWeather.getCurrentWeatherByGeoCoordinates(lat, long).then(async(weather)=> {
-    //             await setTempo({name: weather.name, cidade: weather.sys.country, temperatura: weather.main.temp})
-    //         }) 
-
-    //     console.log(lat);
-    //     console.log(long);
-    // }, []);
-
-
-    const { date, time } = useDate();
-    const [ tempo, setTempo ] = useState({name: '', cidade: '', temperatura: 0});
+    // },[lat, long]);
+    // console.log(lat);
+    // console.log(long);
     
-    useEffect(() => {
-        Tempo().then((res) => {
-            setTempo({name: res.name, cidade: res.sys.country, temperatura: res.main.temp})
-        })
-    }, [])
+    // lat == 0 && long == 0 ? 
+    //     openWeather.getCurrentWeatherByCityName({ cityName: 'Florianopolis' }).then((weather)=> {
+    //         setTempo({name: weather.name, cidade: weather.sys.country, temperatura: weather.main.temp})
+    //     }) :
+    
+    const { date, time } = useDate();
 
     return (
         <BodyHome>
@@ -61,28 +59,11 @@ export default function Home() {
                     <Time>{time}</Time>
                     <Date>{date}</Date>
                 </DivTime>
-                <HeaderImgTemp>
-                    <City>{tempo.name} - {tempo.cidade}</City>                    
-                    <Temp>
-                        <IconCloud>
-                            <WiDayCloudyGusts />
-                        </IconCloud>
-                        {tempo.temperatura.toFixed(0)}°
-                    </Temp>
-                </HeaderImgTemp>
+                <OpenWeather />
             </Header>
 
             <Main>
-                <DivText>
-                    <FirstTextIng>Our mission is</FirstTextIng>
-                    <TextPt>Nossa missão é</TextPt>
-                    <TextIng>to transform the world</TextIng>
-                    <TextPt>transformar o mundo</TextPt>
-                    <TextIng>building digital experiences</TextIng>
-                    <TextPt>construindo experiências digitais</TextPt>
-                    <TextIng>that enable our client’s growth</TextIng>
-                    <TextPt>que permitam o crescimento dos nossos clientes</TextPt>
-                </DivText>
+                <TextCenter />
             </Main>
 
             <Footer>

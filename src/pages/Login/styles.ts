@@ -6,8 +6,7 @@ type PropBorder = {
     border: boolean
 }
 type PropIcon = {
-    focusUser?: boolean,
-    focusPassword?: boolean
+    focus: string
 }
 
 export const Main = styled.main`
@@ -67,10 +66,6 @@ export const ImgLeft = styled.img`
 
 `;
 
-export const DivTop = styled.div`
-    width: 100%;
-`;
-
 //! Bottom
 
 export const DivBottom = styled.div`
@@ -78,33 +73,9 @@ export const DivBottom = styled.div`
     position: relative;
 `;
 
-export const LoginTitle = styled.h1`
-    font-size: 3.75rem;
-    padding-bottom: 1.063rem;
-    @media screen and (max-width: 280px) {
-        font-size: 3.2rem;
-    }
-`;
 
-export const LoginInfo = styled.p`
-    font-size: 1rem;
-    padding-bottom: 8.438rem;
-    padding-right: 6rem;
-    line-height: 20px;
-    @media screen and (max-width: 1440px) {
-        padding-right: unset;
-    }
-    @media screen and (max-width: 1024px) {
-        padding-bottom: 5.438rem;
-        padding-right: 6rem;
-    }
-    @media screen and (max-width: 425px) {
-        padding-right: unset;
-    }
-    @media screen and (max-width: 280px) {
-        padding-bottom: 3.438rem;
-    }
-`;
+
+
 
 export const LoginText = styled.p`
     font-size: 1.875rem;
@@ -131,20 +102,27 @@ export const IconUser = styled(AiOutlineUser)<PropIcon>`
     font-size: 25px;
     transition: 0.5s;
 
-    ${({focusUser}) => focusUser ? 'right: 20px' : 'right: -40px'}
-    /* @media screen and (max-width: 280px) {
-        ${({focusUser}) => focusUser ? 'right: 15px' : 'right: -40px'}
-    } */
+    ${({focus}) => focus === 'true' ? 'right: 20px' : 'right: -40px'};
+
+    @media screen and (max-width: 320px) {
+        ${({focus}) => focus && 'right: 10px'};
+    }
+    @media screen and (max-width: 280px) {
+        ${({focus}) => focus === 'true' ? 'right: 15px' : 'right: -35px'};
+    }
 `;
 export const IconPassword = styled(AiOutlineLock)<PropIcon>`    
     position: absolute;
     font-size: 25px;
     transition: 0.5s;
 
-    ${({focusPassword}) => focusPassword ? 'right: 20px' : 'right: -40px'}
-    /* @media screen and (max-width: 280px) {
-        ${({focusPassword}) => focusPassword ? 'right: 10px' : 'right: 10px'}
-    } */
+    ${({focus}) => focus === 'true' ? 'right: 20px' : 'right: -40px'};
+    @media screen and (max-width: 320px) {
+        ${({focus}) => focus && 'right: 10px'};
+    }
+    @media screen and (max-width: 280px) {
+        ${({focus}) => focus === 'true' ? 'right: 15px' : 'right: -35px'};
+    }
 `;
 
 export const Input = styled.input<PropBorder>`
