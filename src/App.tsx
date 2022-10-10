@@ -1,5 +1,5 @@
 import Login from './pages/Login'
-import { GlobalStyles } from './pages/Components/UI/GlobalStyle'
+import { GlobalStyles } from './Components/UI/GlobalStyle'
 import Router from './routes'
 
 function App() {

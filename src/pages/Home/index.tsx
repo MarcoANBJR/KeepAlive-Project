@@ -3,12 +3,12 @@ import logoHeader from '../../assets/home-compasso-preto.svg';
 import CountDown from "./CountDown";
 import { useDate } from "./Date";
 import { DivTime, Time, Date } from "./Date/styles";
-import ButtonFooter from "./Date/ButtonFooter";
+import ButtonFooter from "./ButtonFooter";
 import { useEffect, useState } from "react";
 import { WiDayCloudyGusts } from "react-icons/wi";
 import OpenWeatherMap from "openweathermap-ts";
 import { TextCenter } from "./TextCenter";
-import { OpenWeather } from "../Components/OpenWeather";
+import { OpenWeather } from "../../Components/OpenWeather";
 
 export default function Home() {
 

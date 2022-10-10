@@ -4,13 +4,31 @@ import { useState } from "react";
 import Alert from "./Alert";
 import { useNavigate } from "react-router-dom";
 import { Intro } from "./Intro";
+import { SendRegister } from "./SendRegister";
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from "../../services/firebase";
 
 
 export default function Login() {
     const [form, setForm] = useState({
         user: '',
         password: '',
+        login: '',
     });
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    function handleCreate() {
+        signInWithEmailAndPassword(form.user, form.password)
+    }
+
+    if(user) console.log(user);
+    if(error) console.log(error);
+    
 
     const [visible, setVisible] = useState(false);
     const [focusUser, setFocusUser] = useState('false');
@@ -23,6 +41,7 @@ export default function Login() {
 
     function nextPage() {
         setVisible(false);
+        handleCreate();
         navigate('/home');
     }   
 
@@ -74,7 +93,8 @@ export default function Login() {
                             onClick={() => btnContinue()}
                         >
                             Continuar
-                        </ContinueButton>       
+                        </ContinueButton> 
+                        <SendRegister />
                     </DivBottom>         
                 </DivLeft>                
             </SectionLeft>

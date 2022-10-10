@@ -1,7 +1,7 @@
 import OpenWeatherMap from "openweathermap-ts";
 import { useState, useEffect } from "react";
 import { WiDayCloudyGusts } from "react-icons/wi";
-import { City, HeaderWeather, IconCloud, Temp } from "../../Home/styles";
+import { City, HeaderWeather, IconCloud, Temp } from "../../pages/Home/styles";
 
 
 export const OpenWeather = () => {

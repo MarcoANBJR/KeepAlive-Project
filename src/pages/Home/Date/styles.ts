@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Font } from "../../../Components/UI/variaveis";
 
 
 export const DivTime = styled.div`
@@ -12,7 +13,7 @@ export const DivTime = styled.div`
 `;
 
 export const Time = styled.p`    
-    font-weight: 700;
+    font-weight: ${Font.bold};
     font-size: 9rem;
     line-height: 183px;
     margin-bottom: -40px;    
