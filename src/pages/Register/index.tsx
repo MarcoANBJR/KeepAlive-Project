@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Alert from "../Login/Alert";
 import { Intro } from "./Intro";
 import { ContinueButton, DivBottom, DivLeft, GlobalStyle, IconLogin, IconPassword, IconUser, ImgLeft, ImgRight, Input, LoginText, Main, PasswordDivInput, Rule, Rules, SectionLeft, SectionRight, UserDivInput, Validations } from "./styles";
 import logoCompasso from '../../assets/Logo-Compasso-Branco.png'
 import { SendLogin } from "./SendLogin";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { auth } from "../../services/firebase";
 import * as Regex from "../../common/helper/Regex";
 
@@ -21,7 +20,8 @@ export const Register = () => {
     const [passwordValid, setPasswordValid] = useState(false);
     const [confirmPasswordValid, setConfirmPasswordValid] = useState(false);
     const [userValid, setUserValid] = useState(false);
-
+    const [updateProfile, updating, errors] = useUpdateProfile(auth);
+    
     useEffect(() => {
         Regex.login.test(form.login) ? setLoginValid(true) : setLoginValid(false);
         Regex.user.test(form.user) ? setUserValid(true) : setUserValid(false);
@@ -36,8 +36,10 @@ export const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    function handleCreate() {
-        createUserWithEmailAndPassword(form.login, form.password)
+    async function handleCreate() {
+        await createUserWithEmailAndPassword(form.login, form.password);
+        await updateProfile({displayName: form.user});
+        console.log(auth.currentUser?.displayName);
     }
 
 
@@ -49,7 +51,7 @@ export const Register = () => {
     const navigate = useNavigate();
 
     function btnContinue() {
-        loginValid && userValid && passwordValid && confirmPasswordValid ? setVisible(true) : nextPage();        
+        loginValid && userValid && passwordValid && confirmPasswordValid ? setVisible(true) : nextPage();
     }
 
     function nextPage() {

@@ -1,15 +1,19 @@
 import { DivLeft, ImgRight, Main, SectionLeft, SectionRight, LoginText, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, IconUser, IconPassword, ImgLeft, GlobalStyle } from "./styles";
 import logoCompasso from '../../assets/Logo-Compasso-Branco.png'
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Alert from "./Alert";
 import { useNavigate } from "react-router-dom";
 import { Intro } from "./Intro";
 import { SendRegister } from "./SendRegister";
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from "../../services/firebase";
+import { UserContext } from "../../contexts/UserContext";
 
 
 export default function Login() {
+    
+    const { currentUser, setCurrentUser } = useContext<any>(UserContext);
+
     const [form, setForm] = useState({
         user: '',
         password: '',
@@ -22,26 +26,22 @@ export default function Login() {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    function handleCreate() {
-        signInWithEmailAndPassword(form.user, form.password)
-    }
-
-    if(user) console.log(user);
-    if(error) console.log(error);
-    
-
     const [visible, setVisible] = useState(false);
     const [focusUser, setFocusUser] = useState('false');
     const [focusPassword, setFocusPassword] = useState('false');
     const navigate = useNavigate();
+    const [ teste, setTeste ] = useState('');
 
-    function btnContinue() {
-        form.user == '' || form.password.length < 3 ? setVisible(true) : nextPage();        
-    }
+    function btnContinue() {        
+        signInWithEmailAndPassword(form.user, form.password)
+        const validUser = auth.currentUser?.displayName;        
+        console.log(validUser);
+        setCurrentUser(validUser);
+        auth.currentUser ? nextPage() : setVisible(true); 
+    }    
 
     function nextPage() {
         setVisible(false);
-        handleCreate();
         navigate('/home');
     }   
 
@@ -49,7 +49,7 @@ export default function Login() {
         <Main>
             <GlobalStyle />
             <SectionLeft>
-                <DivLeft>                    
+                <DivLeft>                 
                     <ImgLeft src={logoCompasso}/>
                     <Intro />
                     <DivBottom>
