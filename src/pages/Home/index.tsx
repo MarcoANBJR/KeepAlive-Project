@@ -18,10 +18,10 @@ export default function Home() {
     const { currentUser, setCurrentUser } = useContext(UserContext);
     const { date, time } = useDate();
 
-    useEffect(() => {
+    useEffect(() =>  {
         const userName = currentUser.split(' ')[0];
         setCurrentUser(userName);
-        !auth.currentUser && navigate('/');
+        setTimeout(() => !auth.currentUser && navigate('/'), 1000)
     }, [auth.currentUser])
     
     return (
@@ -42,7 +42,8 @@ export default function Home() {
 
             <Footer>
                 <DisplayName>
-                    Bem Vindo(a), {currentUser}
+                    <p>Bem Vindo(a),</p>  
+                    <p>{currentUser}</p>
                 </DisplayName>
                 <TextFooter>
                     Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a aberta em segundo plano e abra uma nova janela para continuar a navegar.

@@ -139,12 +139,22 @@ export const Footer = styled.footer`
 `;
 
 export const DisplayName = styled.div`
-    width: 10rem;
+    width: 13rem;
     padding: 0 1rem;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 15px;
     grid-area: displayName;
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 1440px) {
+        width: 10rem;
+        padding: 0 1rem;
+        text-align: center;
+        font-size: 12px;
+        line-height: 15px;
+    }
     @media screen and (max-width: 425px) {
         width: 12rem;
         padding: 1rem 1rem;
@@ -152,6 +162,9 @@ export const DisplayName = styled.div`
         justify-self: center;
     }
 `;
+
+export const DisplayTop = styled.p``;
+export const DisplayDown = styled.p``;
 
 export const TextFooter = styled.p`
     font-size: 12px;
@@ -243,6 +256,9 @@ export const DivButton = styled.div`
     }
     @media screen and (max-width: 320px) {
         height: 8rem;
+    }
+    @media screen and (max-height: 280px) {        
+        padding-left: 2.063rem;
     }
 `;
 
