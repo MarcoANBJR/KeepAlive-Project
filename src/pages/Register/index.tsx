@@ -50,13 +50,17 @@ export const Register = () => {
     const [focusConfirmPassword, setFocusConfirmPassword] = useState('false');
     const navigate = useNavigate();
 
+    useEffect(() => {
+        auth.currentUser && navigate('/home');
+    }, [])
+
     function btnContinue() {
-        loginValid && userValid && passwordValid && confirmPasswordValid ? setVisible(true) : nextPage();
-    }
+        loginValid && userValid && passwordValid && confirmPasswordValid ? nextPage() : setVisible(true);
+    }    
 
     function nextPage() {
         setVisible(false);
-        handleCreate();
+        handleCreate();        
         navigate('/');
     }  
 
@@ -117,7 +121,7 @@ export const Register = () => {
                         <UserDivInput>
                             <Validations>
                                 <Rules>A senha deve conter:</Rules>
-                                <Rule test={form.password.length > 7}>Mínimo 6 caracteres</Rule>
+                                <Rule test={form.password.length >= 6}>Mínimo 6 caracteres</Rule>
                                 <Rule test={Regex.number.test(form.password)}>Um número</Rule>
                                 <Rule test={Regex.lowercase.test(form.password)}>1 letra minúscula</Rule>
                                 <Rule test={Regex.uppercase.test(form.password)}>1 letra maiúscula</Rule>

@@ -106,6 +106,7 @@ export const Footer = styled.footer`
         height: 20%;
         display: grid;
         grid-template-areas: 
+            'displayName displayName displayName' 
             'text text text'
             'bar bar bar'
             'textS seconds buttons'
@@ -114,7 +115,8 @@ export const Footer = styled.footer`
     @media screen and (max-width: 320px) {
         height: 32%;
         display: grid;
-        grid-template-areas: 
+        grid-template-areas:         
+            'displayName displayName displayName'
             'text text text'
             'bar bar bar'
             'textS seconds seconds'
@@ -136,12 +138,31 @@ export const Footer = styled.footer`
     }
 `;
 
+export const DisplayName = styled.div`
+    width: 10rem;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 12px;
+    line-height: 15px;
+    grid-area: displayName;
+    @media screen and (max-width: 425px) {
+        width: 12rem;
+        padding: 1rem 1rem;
+        font-size: 13px;
+        justify-self: center;
+    }
+`;
+
 export const TextFooter = styled.p`
     font-size: 12px;
     line-height: 15px;
     text-align: right;
     width: 33.813rem;  
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {        
+        font-size: 12px;
+        line-height: 14px;
+        text-align: right;
+        width: 40.813rem;
     }
     @media screen and (max-width: 425px) {
         width: 80%;  

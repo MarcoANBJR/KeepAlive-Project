@@ -1,6 +1,6 @@
 import { DivLeft, ImgRight, Main, SectionLeft, SectionRight, LoginText, DivBottom, ContinueButton, UserDivInput, Input, PasswordDivInput, IconUser, IconPassword, ImgLeft, GlobalStyle } from "./styles";
 import logoCompasso from '../../assets/Logo-Compasso-Branco.png'
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Alert from "./Alert";
 import { useNavigate } from "react-router-dom";
 import { Intro } from "./Intro";
@@ -11,9 +11,8 @@ import { UserContext } from "../../contexts/UserContext";
 
 
 export default function Login() {
-    
-    const { currentUser, setCurrentUser } = useContext<any>(UserContext);
 
+    const { setCurrentUser } = useContext<any>(UserContext);
     const [form, setForm] = useState({
         user: '',
         password: '',
@@ -30,10 +29,13 @@ export default function Login() {
     const [focusUser, setFocusUser] = useState('false');
     const [focusPassword, setFocusPassword] = useState('false');
     const navigate = useNavigate();
-    const [ teste, setTeste ] = useState('');
 
-    function btnContinue() {        
-        signInWithEmailAndPassword(form.user, form.password)
+    useEffect(() => {
+        auth.currentUser && navigate('/home');
+    }, [])
+
+    async function btnContinue() {        
+        await signInWithEmailAndPassword(form.user, form.password)
         const validUser = auth.currentUser?.displayName;        
         console.log(validUser);
         setCurrentUser(validUser);

@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import { DivSend, Click, Text } from "./styles";
 
 export const SendRegister = ():any => {    
     const navigate = useNavigate();
     return(
-        <>
-            <p>Se você não possui cadastro,</p>
-            <p onClick={() => navigate('/register')}>clique aqui!</p>
-        </>
-)}
+        <DivSend>
+            <Text>Se você não possui cadastro,</Text>
+            <Click onClick={() => navigate('/register')}>clique aqui!</Click>
+        </DivSend>
+    )
+}
